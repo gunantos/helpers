@@ -1,0 +1,7 @@
+Here's how you can resize it to full capacity of the disk:
+
+1. See the current size of the logical volume before df -hT /dev/mapper/ubuntu--vg-ubuntu--lv
+2. Run a test first sudo lvresize -tvl +100%FREE /dev/mapper/ubuntu--vg-ubuntu--lv
+3. Resize the logical volume sudo lvresize -vl +100%FREE /dev/mapper/ubuntu--vg-ubuntu--lv
+4. Resize the filesystem sudo resize2fs -p /dev/mapper/ubuntu--vg-ubuntu--lv
+5. Check the size of the logical volume to see if everything went smooth df -hT /dev/mapper/ubuntu--vg-ubuntu--lv
